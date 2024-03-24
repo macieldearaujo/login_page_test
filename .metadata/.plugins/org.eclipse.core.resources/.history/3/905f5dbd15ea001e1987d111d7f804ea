@@ -1,0 +1,27 @@
+package application;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String args[]) {
+		
+		Scanner sc = new Scanner(System.in);
+		Map<String, String> loginfo = new HashMap<>();
+		
+		String id = "doug";
+		String password = "12345";
+		
+		loginfo.put(id, password);
+		
+		String idField = sc.next();
+		String passwordField = sc.next();
+		
+		if(id)
+		
+		sc.close();
+		
+	}
+}
