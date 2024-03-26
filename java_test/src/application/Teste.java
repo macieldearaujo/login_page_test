@@ -3,16 +3,26 @@ package application;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.io.File;
+import java.awt.Insets;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JSeparator;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 public class Teste {
 
-    private JFrame frame;
+    private JFrame frmUlifeHealth;
+    private JTextField usernameField;
+    private JPasswordField passwordField;
+    private Insets insets = new Insets(0, 20, 0, 0); // Margem de 20 pixels à esquerda
 
     /**
      * Launch the application.
@@ -22,7 +32,7 @@ public class Teste {
             public void run() {
                 try {
                     Teste window = new Teste();
-                    window.frame.setVisible(true);
+                    window.frmUlifeHealth.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -41,42 +51,153 @@ public class Teste {
      * Initialize the contents of the frame.
      */
     private void initialize() {
-        frame = new JFrame();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frmUlifeHealth = new JFrame();
+        frmUlifeHealth.setTitle("Ulife Health");
+        frmUlifeHealth.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // Maximizar a janela
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frmUlifeHealth.setExtendedState(JFrame.MAXIMIZED_BOTH);
         
         // Configurar o contentPane
         JPanel contentPane = new JPanel();
-        frame.setContentPane(contentPane);
+        contentPane.setBackground(new Color(248, 248, 248));
+        frmUlifeHealth.setContentPane(contentPane);
         contentPane.setLayout(null);
         
         JPanel panel = new JPanel();
         panel.setBackground(new Color(3, 130, 172));
-        panel.setBounds(0, 0, 625, 1057);
+        panel.setBounds(0, 0, 724, 1057);
         contentPane.add(panel);
         panel.setLayout(null);
         
         JLabel lblNewLabel = new JLabel("New label");
-        lblNewLabel.setBounds(98, 305, 410, 370);
+        lblNewLabel.setIcon(new ImageIcon("C:\\Users\\dougl\\Downloads\\home-cartoon.png"));
+        lblNewLabel.setBounds(192, 305, 410, 370);
         panel.add(lblNewLabel);
         
-        JLabel lblNewLabel_1 = new JLabel("Enhance impact in healthcare");
-        lblNewLabel_1.setForeground(new Color(255, 255, 255));
-        lblNewLabel_1.setFont(new Font("Arial", Font.BOLD, 35));
-        lblNewLabel_1.setBounds(60, 733, 488, 49);
-        panel.add(lblNewLabel_1);
+        JLabel login_label_title = new JLabel("Enhance impact in healthcare");
+        login_label_title.setForeground(new Color(255, 255, 255));
+        login_label_title.setFont(new Font("Arial", Font.BOLD, 35));
+        login_label_title.setBounds(99, 733, 488, 49);
+        panel.add(login_label_title);
         
-        JLabel lblNewLabel_1_1 = new JLabel("<html><p>Your Impact in healthcare just got stronger.Enhance patient care\r\nthrough refined data control, seamless appointments, and impactful\r\ntask management.<p></html>");
-        lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.TRAILING);
-        lblNewLabel_1_1.setForeground(Color.WHITE);
-        lblNewLabel_1_1.setFont(new Font("Arial", Font.PLAIN, 17));
-        lblNewLabel_1_1.setBounds(60, 787, 488, 74);
-        panel.add(lblNewLabel_1_1);
+        JLabel login_label_subtitle = new JLabel("<html><p>Your Impact in healthcare just got stronger.Enhance patient care\r\nthrough refined data control, seamless appointments, and impactful\r\ntask management.<p></html>");
+        login_label_subtitle.setHorizontalAlignment(SwingConstants.TRAILING);
+        login_label_subtitle.setForeground(Color.WHITE);
+        login_label_subtitle.setFont(new Font("Arial", Font.PLAIN, 17));
+        login_label_subtitle.setBounds(99, 787, 488, 74);
+        panel.add(login_label_subtitle);
+        
+        JLabel login_menu_1 = new JLabel("About us");
+        login_menu_1.addKeyListener(new KeyAdapter() {
+        	@Override
+        	public void keyPressed(KeyEvent e) {
+        	}
+        });
+        login_menu_1.setHorizontalAlignment(SwingConstants.LEFT);
+        login_menu_1.setForeground(new Color(255, 255, 255));
+        login_menu_1.setFont(new Font("Arial", Font.PLAIN, 19));
+        login_menu_1.setBounds(160, 51, 99, 30);
+        panel.add(login_menu_1);
+        
+        JLabel login_menu_2 = new JLabel("Contact us");
+        login_menu_2.addKeyListener(new KeyAdapter() {
+        	@Override
+        	public void keyPressed(KeyEvent e) {
+        	}
+        });
+        login_menu_2.setHorizontalAlignment(SwingConstants.LEFT);
+        login_menu_2.setForeground(Color.WHITE);
+        login_menu_2.setFont(new Font("Arial", Font.PLAIN, 19));
+        login_menu_2.setBounds(464, 51, 117, 30);
+        panel.add(login_menu_2);
+        
+        JLabel login_title = new JLabel("Login to your account");
+        login_title.setFont(new Font("Arial", Font.BOLD, 45));
+        login_title.setBounds(1005, 165, 495, 64);
+        contentPane.add(login_title);
+        
+        JLabel login_subtitle = new JLabel("<html><p>Login yo acess your healthcare dashboard. Explore appointments manages and patient records with ease.<p></html>");
+        login_subtitle.setHorizontalAlignment(SwingConstants.TRAILING);
+        login_subtitle.setForeground(new Color(128, 128, 128));
+        login_subtitle.setFont(new Font("Arial", Font.PLAIN, 17));
+        login_subtitle.setBounds(1005, 240, 495, 42);
+        contentPane.add(login_subtitle);
+        
+        JLabel usernameTitleField = new JLabel("Username:");
+        usernameTitleField.setHorizontalAlignment(SwingConstants.LEFT);
+        usernameTitleField.setForeground(new Color(0, 0, 0));
+        usernameTitleField.setFont(new Font("Arial", Font.BOLD, 17));
+        usernameTitleField.setBounds(1005, 370, 98, 28);
+        contentPane.add(usernameTitleField);
+        
+        usernameField = new JTextField();
+        usernameField.setMargin(insets);
+        usernameField.setFont(new Font("Arial", Font.PLAIN, 17));
+        usernameField.setBounds(1005, 421, 495, 52);
+        contentPane.add(usernameField);
+        usernameField.setColumns(10);
+        
+        JLabel passwordTitleField = new JLabel("Password:");
+        passwordTitleField.setHorizontalAlignment(SwingConstants.LEFT);
+        passwordTitleField.setForeground(Color.BLACK);
+        passwordTitleField.setFont(new Font("Arial", Font.BOLD, 17));
+        passwordTitleField.setBounds(1005, 506, 98, 28);
+        contentPane.add(passwordTitleField);
+        
+        JLabel forget_password = new JLabel("Forget your password?");
+        forget_password.setHorizontalAlignment(SwingConstants.LEFT);
+        forget_password.setForeground(new Color(0, 210, 0));
+        forget_password.setFont(new Font("Arial", Font.BOLD, 17));
+        forget_password.setBounds(1315, 619, 185, 28);
+        contentPane.add(forget_password);
+        
+        JButton signinButton = new JButton("Sign in");
+        signinButton.setFont(new Font("Arial", Font.BOLD, 30));
+        signinButton.setBackground(new Color(55, 88, 249));
+        signinButton.setForeground(new Color(255, 255, 255));
+        signinButton.setBounds(1005, 730, 495, 53);
+        contentPane.add(signinButton);
+        
+        passwordField = new JPasswordField();
+        passwordField.setMargin(insets);
+        passwordField.setFont(new Font("Arial", Font.PLAIN, 17));
+        passwordField.setBounds(1005, 556, 495, 52);
+        contentPane.add(passwordField);
+        
+        JLabel create_account_2 = new JLabel("Sign up");
+        create_account_2.setHorizontalAlignment(SwingConstants.LEFT);
+        create_account_2.setForeground(new Color(0, 210, 0));
+        create_account_2.setFont(new Font("Arial", Font.BOLD, 17));
+        create_account_2.setBounds(1427, 831, 73, 28);
+        contentPane.add(create_account_2);
+        
+        JLabel create_account_1 = new JLabel("Don't have an account yet?");
+        create_account_1.setHorizontalAlignment(SwingConstants.LEFT);
+        create_account_1.setForeground(new Color(128, 128, 128));
+        create_account_1.setFont(new Font("Arial", Font.BOLD, 17));
+        create_account_1.setBounds(1178, 831, 239, 28);
+        contentPane.add(create_account_1);
+        
+        JSeparator separator = new JSeparator();
+        separator.setBackground(Color.LIGHT_GRAY);
+        separator.setForeground(Color.LIGHT_GRAY);
+        separator.setBounds(1005, 684, 495, 1);
+        contentPane.add(separator);
+        
+        JSeparator separator_1 = new JSeparator();
+        separator_1.setForeground(Color.LIGHT_GRAY);
+        separator_1.setBackground(Color.LIGHT_GRAY);
+        separator_1.setBounds(1005, 820, 495, 1);
+        contentPane.add(separator_1);
+        
+        JLabel lblNewLabel_1 = new JLabel("New label");
+        lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\dougl\\Downloads\\7c8dc5fa07ecae922195c78a356b845b-fotor-bg-remover-2024032217546 (1).png"));
+        lblNewLabel_1.setBounds(1660, 69, 138, 95);
+        contentPane.add(lblNewLabel_1);
         
         // Adicione seus componentes ao contentPane aqui
         
         // Definir a janela para ser visível
-        frame.setVisible(true);
+        frmUlifeHealth.setVisible(true);
     }
 }
