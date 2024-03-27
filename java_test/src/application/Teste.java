@@ -3,9 +3,12 @@ package application;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.Insets;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -95,8 +98,7 @@ public class Teste {
         });
         login_menu_1.setHorizontalAlignment(SwingConstants.LEFT);
         login_menu_1.setForeground(new Color(255, 255, 255));
-        login_menu_1.setFont(new Font("Arial", Font.PLAIN, 19));
-        login_menu_1.setBounds(160, 51, 99, 30);
+        login_menu_1.setBounds(191, 51, 77, 30);
         panel.add(login_menu_1);
         
         JLabel login_menu_2 = new JLabel("Contact us");
@@ -108,32 +110,31 @@ public class Teste {
         login_menu_2.setHorizontalAlignment(SwingConstants.LEFT);
         login_menu_2.setForeground(Color.WHITE);
         login_menu_2.setFont(new Font("Arial", Font.PLAIN, 19));
-        login_menu_2.setBounds(464, 51, 117, 30);
+        login_menu_2.setBounds(478, 51, 88, 30);
         panel.add(login_menu_2);
         
-        JLabel login_title = new JLabel("Login to your account");
-        login_title.setFont(new Font("Arial", Font.BOLD, 45));
-        login_title.setBounds(1005, 165, 495, 64);
+        JLabel login_title = new JLabel("<html>Login to your account</html>");
+        login_title.setBounds(1005, 166, 412, 95);
         contentPane.add(login_title);
         
         JLabel login_subtitle = new JLabel("<html><p>Login yo acess your healthcare dashboard. Explore appointments manages and patient records with ease.<p></html>");
         login_subtitle.setHorizontalAlignment(SwingConstants.TRAILING);
         login_subtitle.setForeground(new Color(128, 128, 128));
         login_subtitle.setFont(new Font("Arial", Font.PLAIN, 17));
-        login_subtitle.setBounds(1005, 240, 495, 42);
+        login_subtitle.setBounds(1005, 273, 460, 42);
         contentPane.add(login_subtitle);
         
         JLabel usernameTitleField = new JLabel("Username:");
         usernameTitleField.setHorizontalAlignment(SwingConstants.LEFT);
         usernameTitleField.setForeground(new Color(0, 0, 0));
         usernameTitleField.setFont(new Font("Arial", Font.BOLD, 17));
-        usernameTitleField.setBounds(1005, 370, 98, 28);
+        usernameTitleField.setBounds(1005, 381, 98, 28);
         contentPane.add(usernameTitleField);
         
         usernameField = new JTextField();
         usernameField.setMargin(insets);
         usernameField.setFont(new Font("Arial", Font.PLAIN, 17));
-        usernameField.setBounds(1005, 421, 495, 52);
+        usernameField.setBounds(1005, 423, 460, 42);
         contentPane.add(usernameField);
         usernameField.setColumns(10);
         
@@ -148,7 +149,7 @@ public class Teste {
         forget_password.setHorizontalAlignment(SwingConstants.LEFT);
         forget_password.setForeground(new Color(0, 210, 0));
         forget_password.setFont(new Font("Arial", Font.BOLD, 17));
-        forget_password.setBounds(1315, 619, 185, 28);
+        forget_password.setBounds(1280, 598, 185, 28);
         contentPane.add(forget_password);
         
         JButton signinButton = new JButton("Sign in");
@@ -161,7 +162,7 @@ public class Teste {
         passwordField = new JPasswordField();
         passwordField.setMargin(insets);
         passwordField.setFont(new Font("Arial", Font.PLAIN, 17));
-        passwordField.setBounds(1005, 556, 495, 52);
+        passwordField.setBounds(1005, 545, 460, 42);
         contentPane.add(passwordField);
         
         JLabel create_account_2 = new JLabel("Sign up");
@@ -194,6 +195,22 @@ public class Teste {
         lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\dougl\\Downloads\\7c8dc5fa07ecae922195c78a356b845b-fotor-bg-remover-2024032217546 (1).png"));
         lblNewLabel_1.setBounds(1660, 69, 138, 95);
         contentPane.add(lblNewLabel_1);
+        
+        try {
+        	Font font_openSans_regular = Font.createFont(Font.TRUETYPE_FONT, new File("font\\Open_Sans\\static\\OpenSans-Regular.ttf"));
+        	Font font_openSans_semiBold = Font.createFont(Font.TRUETYPE_FONT, new File("font\\Open_Sans\\static\\OpenSans-ExtraBold.ttf"));
+        	
+        	login_menu_1.setFont(font_openSans_regular.deriveFont(16f));
+        	login_menu_2.setFont(font_openSans_regular.deriveFont(16f));
+        	login_title.setFont(new Font("Arial Black", Font.PLAIN, 35));
+        	login_subtitle.setFont(font_openSans_semiBold.deriveFont(14f));
+        }
+        catch(IOException e) {
+        	throw new RuntimeException(e.getMessage());
+        }
+        catch(FontFormatException e) {
+        	throw new RuntimeException(e.getMessage());
+        }
         
         // Adicione seus componentes ao contentPane aqui
         
